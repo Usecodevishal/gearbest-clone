@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:OpenSans, Arial, Helvetica, sans-serif;
+        }
+        #site-logo-home{
+            margin-left:50px;
+            margin-top:25px;
+            width:207px;
+            height:100px;
+        }
+        #site-logo-img{
+            width:100%;
+            height:50%;
+        }
+        #signin-box{
+            float:right;
+            margin-right:50px;
+            margin-top:50px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            width:30%;
+            height:400px;
+            
+        }
+        #signin-head{
+            display:flex;
+            justify-content: left;
+            align-items: center;
+            gap:10px;
+        }
+        ul{
+            list-style-type:none;
+            display:flex;
+            color:#babac0;
+            gap:40px;
+            justify-content: space-evenly;
+        }
+        ul li{
+            cursor:pointer;
+            position:relative;
+            text-align: center;
+        }
+        .active{
+            color:black;
+        }
+        li.active::after{
+            position:absolute;
+            content:"";
+            height:3px;
+            width:100%;
+            background-color: rgb(255, 255, 0);
+            left:0;
+            bottom:-7px;
+            
+        }
+        #signin-form{
+            display:flex;
+            flex-direction: column;
+            gap:10px;
+        }
+        #signin-form>input{
+            margin:auto;
+            width:80%;
+            height:35px;
+            border:1px solid rgb(175, 171, 171);;
+        }
+        #checkbox{
+            margin-left:30px;
+        }
+        #signin-submit-btn{
+            margin:auto;
+            background-color: #ffda00;
+            width:80%;
+            height:40px;
+            border:thin;
+        }
+        a{
+            text-decoration: none;
+            color:#babac0;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-logo-home">
+        <a href="index.html">
+            <img id="site-logo-img" src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png"/>
+        </a>
+    </div>
+    <div id="signin-box">
+        <div id="signin-nav">
+            <div id="signin-head">
+                <h3>
+                    <ul>
+                            <li class="active">SIGN IN</li>
+                            <li><a href="register.html">REGISTER</a></li>
+                    </ul>
+                </h3>
+            </div>
+        </div>
+        <div id="signin-form">
+                <input type="email" id="user-signin-credential" placeholder="Enter your email"/>
+                <input type="password" id="user-password" placeholder="password"/>
+                <div id="checkbox"><input type="checkbox"/><span>keep me signed in</span></div>
+                <button id="signin-submit-btn" onclick="checkCred()"><h3>Sign In</h3></button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const items=document.querySelectorAll("ul li");
+    items.forEach((item) => {
+        item.addEventListener("click", () =>{
+            document.querySelector("li.active").classList.remove("active");
+            item.classList.add("active");
+        });
+    });
+
+    let signin_cred=JSON.parse(localStorage.getItem("gearUser")) || [];
+    console.log(signin_cred);
+
+    
+     checkCred = () => {
+        let Email=document.getElementById("user-signin-credential").value;
+        let Password=document.getElementById("user-password").value;
+
+        for(i=0;i<signin_cred.length;i++){
+            if(signin_cred[i].password==Password && signin_cred[i].email==Email){
+                alert("Now your become gearbest coustmer");
+                window.location.href="index.html";
+                break;
+            }
+            else if(i==signin_cred.length-1){
+                alert("Email and Password is not matched");
+            }
+        }
+    }
+</script>

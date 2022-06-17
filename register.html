@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:OpenSans, Arial, Helvetica, sans-serif;
+        }
+        #site-logo-home{
+            margin-left:50px;
+            margin-top:25px;
+            width:207px;
+            height:100px;
+        }
+        #site-logo-img{
+            width:100%;
+            height:50%;
+        }
+        #signin-box{
+            float:right;
+            margin-right:50px;
+            margin-top:50px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            width:30%;
+            height:400px;
+            
+        }
+        #signin-head{
+            display:flex;
+            justify-content: left;
+            align-items: center;
+            gap:10px;
+        }
+        ul{
+            list-style-type:none;
+            display:flex;
+            color:#babac0;
+            gap:40px;
+            justify-content: space-evenly;
+        }
+        ul li{
+            cursor:pointer;
+            position:relative;
+            text-align: center;
+        }
+        .active{
+            color:black;
+        }
+        li.active::after{
+            position:absolute;
+            content:"";
+            height:3px;
+            width:100%;
+            background-color: rgb(255, 255, 0);
+            left:0;
+            bottom:-7px;
+            
+        }
+        a{
+            text-decoration: none;
+            color:#babac0;
+        }
+        form{
+            display:flex;
+            flex-direction: column;
+            gap:15px;
+        }
+        form>input{
+            margin:auto;
+            width:80%;
+            height:35px;
+            border:1px solid rgb(187, 184, 184);
+        }
+        #submit-btn{
+            width:80%;
+            height:40px;
+            background-color: #ffda00;
+            border:thin;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-logo-home">
+        <a href="index.html">
+            <img id="site-logo-img" src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png"/>
+        </a>
+    </div>
+    <div id="signin-box">
+        <div id="signin-nav">
+            <div id="signin-head">
+                <h3>
+                    <ul>
+                            <li><a href="signin.html">SIGN IN</a></li>
+                            <li class="active">REGISTER</li>
+                    </ul>
+                </h3>
+            </div>
+        </div>
+        <div id="signin-form">
+                <form id="register-form">
+                    <input type="email" id="user_email" placeholder="Email"/>
+                    <input type="password" id="user_password" placeholder="Create Password"/>
+                    <input type="password" id="re_enter_password" placeholder="Re-type Password"/>
+                    <input type="text" placeholder="Enter the Code"/>
+                    <button onclick="submitUserCred(event)" id="submit-btn"><h3>Register</h3></button>
+                </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let gear_all_user=JSON.parse(localStorage.getItem("gearUser")) || [];
+
+
+    function userCred(e,p,d){
+        this.email=e;
+        this.password=p;
+        this.D_password=d
+    }
+
+     submitUserCred = (event) => {
+        event.preventDefault();
+        let form=document.getElementById("register-form");
+
+        let Email=form.user_email.value;
+        let Password=form.user_password.value;
+        let D_password=form.re_enter_password.value;
+
+        if(Password!=D_password){
+            alert("Passwords Not Matched");
+        
+        }else if(Password==D_password){
+            let User_cred=new userCred(Email,Password,D_password);
+        //console.log(User_cred);
+
+        gear_all_user.push(User_cred);
+
+        console.log(gear_all_user);
+
+        localStorage.setItem("gearUser",JSON.stringify(gear_all_user));
+
+        alert("Registered Successfully");
+        window.location.href="signin.html";
+
+        form.reset();
+
+        }
+
+        
+
+    }
+
+</script>

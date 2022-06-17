@@ -1,0 +1,264 @@
+*{
+    font-family:OpenSans, Arial, Helvetica, sans-serif;
+}
+#top-navbar{
+    margin:auto;
+    width:90%;
+    height:20px;
+    display:flex;
+    gap:20px;
+    justify-content:end;
+    color:#666666;
+    line-height:24px;
+    font-size:13px;
+    
+}
+#top-navbar>p{
+    margin-top:2px;
+}
+#main-navbar{
+    display:flex;
+    
+    margin:auto;
+    width:90%;
+    height:60px;
+    
+}
+#site-logo>img{
+    width:230px;
+    height:50px;
+    margin-left:0px;
+    
+}
+#search-box{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:auto;
+    width:40%;
+    height:30px;
+    border-radius: 20px;
+    border:2px solid #ffda00;
+
+}
+#signin_cart_div{
+    display:flex;
+    gap:20px;
+    color:#666666;
+}
+.logo{
+    
+    width:20px;
+    height:20px;
+}
+#signin-option{
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+#favorite{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+#cart-div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#slideshow-div{
+    margin:auto;
+    width:90%;
+    height:500px;
+   
+}
+#slideshow-navbar{
+    background-color: #ffda00;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:100%;
+    height:50px;
+    
+}
+.slide-nav{
+    text-align: center;
+    width:25%;
+    height:100%;
+
+}
+#main-slide{
+    display:flex;
+    width:100%;
+    height:450px;
+
+}
+#category-content{
+    width:25%;
+    height:100%;
+    background-color: #fefbea;
+   
+}
+#left-content{
+    width:75%;
+    height:100%;
+    
+}
+#slideImg{
+    width:100%;
+    height:100%;
+}
+#search-logo{
+    width:10%;
+    height:100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #ffda00;
+}
+#magnifying{
+    margin:auto;
+    width:90%;
+    height:80%;
+}
+#bottom-flex{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:5px;
+    margin:auto;
+    width:90%;
+    height:150px;
+    
+}
+.flex-div{
+    width:19%;
+    height:90%;
+   
+}
+.flex-img{
+    width:100%;
+    height:100%;
+}
+dd{
+    line-height: 30px;
+    color:#000000;
+    font-weight: 400;
+    font-style: normal;
+    font-size:16px;
+}
+a{
+    text-decoration: none !important;
+}
+#collection-flex{
+    margin:auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:90%;
+    height:250px;
+}
+#collection-heading{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    gap:10px;
+}
+.collection_icon{
+    width:25px;
+    height:25px;
+    background-color:rgb(221, 214, 214);
+}
+.collection_item{
+    width:16%;
+    height:90%;
+    
+}
+#collection_item_first{
+    width:100%;
+    height:100%;
+}
+.collection_img{
+    margin:auto;
+    width:90%;
+    height:70%;
+}
+.collection_item>p{
+    text-align:center;
+    font-size:19px;
+}
+#super_deal_div{
+    margin:auto;
+    width:90%;
+    height:350px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.superdeal_item{
+    width:16%;
+    height:100%;
+
+}
+.superdeal_item:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.superdeal_item>p:hover{
+    color:orange;
+}
+.superdeal_img{
+    margin:auto;
+    width:90%;
+    height:60%;
+
+}
+.gearPrice{
+    color:#f30240;
+    font-size:20px;
+
+}
+#superdeal_heading{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    gap:10px;
+}
+#recommend_heading{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    gap:10px;
+}
+#recommended_items_div{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: auto;
+}
+#recommend_Img{
+    width:210px;
+    height:210px;
+}
+#recommend_price{
+    margin-left:5px;
+    color:#f30240;
+    font-size:20px;
+}
+#recommend_box:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#recommend_title:hover{
+    color:orange;
+}
+#recommend_title{
+    text-align:center;
+}

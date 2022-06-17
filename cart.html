@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:OpenSans, Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: #f2f2f2;
+        }
+        #cart_vessel{
+           
+            gap:5px;
+            width:90%;
+            background-color: #ffffff;
+        }
+        #item_img{
+            width:100px;
+            height:100px;
+        }
+        #single_item{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #title_box{
+            overflow-wrap: break-word;
+            width:300px;
+            height:40px;
+        }
+        #deleteIcon{
+            width:25px;
+            height:25px;
+
+        }
+        #view_total_box{
+           width:570px;
+           height:230px;
+           float:right;
+           margin-top: 30px;
+           background-color: #66765f;
+           margin-right:30px;
+        }
+        #subtotal{
+          padding-top:20px;
+          font-size:24px;
+          color:white;
+          text-align:center;
+          margin:auto;
+        }
+        #gbTotal{
+           font-size:36px;
+           color:white;
+           text-align:center;
+           margin:auto;
+        }
+        #check_btn{
+           width:490px;
+           height:44px;
+           color:white;
+           background-color: #a3b49b;
+           margin-left:30px;
+           border:thin;
+}
+        
+    </style>
+</head>
+<body>
+    <div id="cart_vessel"></div>
+    <div id="view_total_box">
+        <div id="subtotal">Subtotal:</div>
+        <div id="gbTotal"></div>
+        <button id="check_btn"><a style="color:white;" href="checkout.html">Proceed to Checkout</a></button>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    let cart_items=JSON.parse(localStorage.getItem("gbCart")) || [];
+
+    console.log(cart_items);
+
+    let totalCost=cart_items.reduce(function(sum,el,index,arr){
+        return sum + Number(el.gbGoodsItem_price);
+    },0);
+    
+    console.log(Number(totalCost));
+    let GrandTotal=document.getElementById("gbTotal");
+    GrandTotal.innerText="gearbest Total$"+totalCost;
+
+    localStorage.setItem("gbtotal",totalCost);
+
+    let cart_container=document.getElementById("cart_vessel");
+
+    cart_items.forEach(function(el,index){
+        let cartBox=document.createElement("div");
+        cartBox.setAttribute("id","single_item");
+
+        let nameBox=document.createElement("div");
+        nameBox.setAttribute("id","title_box");
+
+
+        
+        let itemImg=document.createElement("img");
+        itemImg.setAttribute("id","item_img");
+        itemImg.src=el.image;
+
+        let Name=document.createElement("p");
+        Name.setAttribute("id","item_name");
+        Name.innerText=el.gbGoodsItem_title;
+
+        nameBox.append(Name);
+
+        let PriceBold=document.createElement("b");
+
+        let Price=document.createElement("p");
+        Price.innerText="$"+el.gbGoodsItem_price;
+
+        PriceBold.append(Price);
+
+        let remove_icon=document.createElement("img");
+        remove_icon.src="./font-icons/trash-solid.svg";
+        remove_icon.setAttribute("id","deleteIcon");
+        remove_icon.addEventListener("click",function(){
+            deleteItem(index);
+        })
+
+        cartBox.append(remove_icon,itemImg,nameBox,PriceBold);
+
+        cart_container.append(cartBox);
+
+
+
+    })
+
+    deleteItem = (index) =>{
+        cart_items.splice(index,1);
+        console.log(cart_items);
+        localStorage.setItem("gbCart",JSON.stringify(cart_items));
+        window.location.reload();
+    }
+</script>
