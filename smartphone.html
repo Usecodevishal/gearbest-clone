@@ -10,6 +10,74 @@
         *{
             font-family:OpenSans, Arial, Helvetica, sans-serif;
         }
+        #top-navbar{
+    margin:auto;
+    width:90%;
+    height:20px;
+    display:flex;
+    gap:20px;
+    justify-content:end;
+    color:#666666;
+    line-height:24px;
+    font-size:13px;
+    
+}
+#top-navbar>p{
+    margin-top:2px;
+}
+#main-navbar{
+    display:flex;
+    
+    margin:auto;
+    width:90%;
+    height:60px;
+    
+}
+#site-logo>img{
+    width:230px;
+    height:50px;
+    margin-left:0px;
+    
+}
+#search-box{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:auto;
+    width:40%;
+    height:30px;
+    border-radius: 20px;
+    border:2px solid #ffda00;
+
+}
+#signin_cart_div{
+    display:flex;
+    gap:20px;
+    color:#666666;
+}
+.logo{
+    
+    width:20px;
+    height:20px;
+}
+#signin-option{
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+#favorite{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+#cart-div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
         #smartPhone_vessel{
             width:90%;
             margin:auto;
@@ -40,6 +108,38 @@
     </style>
 </head>
 <body>
+  <div id="top-navbar">
+    <p>Save $3 with App</p>
+    <p>Support Center</p>
+    <p>Ship to</p>
+    <p>Language</p>
+    <p>Country Website</p>
+</div>
+<div id="main-navbar">
+    <div id="site-logo">
+        <img src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png"/>
+    </div>
+    <div id="search-box">
+        <input type="text" id="search-input"/>
+        <div id="search-logo">
+            <img id="magnifying" src="./font-icons/magnifying-glass-solid.svg"/>
+        </div>
+    </div>
+    <div id="signin_cart_div">
+        <div id="signin-option">
+            <img style="width:20px; height:20px;"class="logo" src="./font-icons/user-regular.svg"/>
+            <a  href="signin.html"><p>Sign In</p></a>
+        </div>
+        <div id="favorite">
+            <img class="logo" src="./font-icons/heart-regular.svg"/>
+            <p>Favorites</p>
+        </div>
+        <div id="cart-div">
+            <img class="logo" src="./font-icons/cart-shopping-solid.svg"/>
+            <a href="cart.html"><p>Cart</p></a>
+        </div>
+    </div>
+</div>
     <div id="smartPhone_vessel"></div>
     <div id="footer-div">
       <div class="footer-four">

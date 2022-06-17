@@ -18,16 +18,16 @@ body{
     height:90%;
     text-align:left;
 }
-dl{
+.footer_dl{
     line-height:20px;
 }
-dd{
+.footer_dt>dd{
     font-size: 12px;
     color:#666666;
     line-height:20px;
 
 }
-dt{
+.footer_dl>dt{
     margin-left:40px;
     line-height: 40px;
 }

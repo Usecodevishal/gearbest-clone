@@ -97,10 +97,17 @@
 
 }
 #category-content{
+    display:flex;
+    flex-direction: row;
+    gap:20px;
+    line-height:30px;
     width:25%;
     height:100%;
     background-color: #fefbea;
    
+}
+#category-content>dd{
+    line-height:30px;
 }
 #left-content{
     width:75%;
@@ -142,8 +149,15 @@
     width:100%;
     height:100%;
 }
-dd{
-    line-height: 30px;
+.sidebar-shopping-option{
+    width:90%;
+    height:100%;
+    margin:auto;
+    gap:20px;
+    border:1px solid black;   
+}
+#category_dt>dd{
+    margin-top:30px;
     color:#000000;
     font-weight: 400;
     font-style: normal;
